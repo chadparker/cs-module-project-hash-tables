@@ -1,7 +1,18 @@
+from collections import defaultdict
+
+IGNORED_CHARS = '":;,.-+=/\\|[]{}()*^&'
+
 def word_count(s):
-    # Your code here
+    s = s.lower()
+    s = ''.join(c for c in s if c not in IGNORED_CHARS)
+    words = s.split()
+    
+    hash_table = defaultdict(int)
+    for word in words:
+        hash_table[word] += 1
 
-
+    return hash_table
+    
 
 if __name__ == "__main__":
     print(word_count(""))
