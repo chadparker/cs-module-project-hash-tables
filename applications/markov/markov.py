@@ -9,9 +9,9 @@ with open("input.txt") as f:
 
 hash_table = {}
 for index, word in enumerate(words):
-    following_words = hash_table.get(word, set())
+    following_words = hash_table.get(word, [])
     if index < len(words)-1:
-        following_words.add(words[index+1])
+        following_words.append(words[index+1])
         hash_table[word] = following_words
 
 # TODO: construct 5 random sentences
