@@ -4,9 +4,6 @@ import random
 with open("input.txt") as f:
     words = f.read().split()
 
-# TODO: analyze which words can follow other words
-# Your code here
-
 hash_table = {}
 for index, word in enumerate(words):
     following_words = hash_table.get(word, [])
@@ -25,7 +22,4 @@ for word in words:
 
 start_word = random.choice(start_words)
 print(start_word)
-
-# TODO: construct 5 random sentences
-# Your code here
 
