@@ -14,6 +14,18 @@ for index, word in enumerate(words):
         following_words.append(words[index+1])
         hash_table[word] = following_words
 
+start_words = []
+# get capitalized words, including starting with double quote
+for word in words:
+    word_no_quote = word
+    if word[0] == '"':
+        word_no_quote = word[1:]
+    if word_no_quote[0].isupper():
+        start_words.append(word)
+
+start_word = random.choice(start_words)
+print(start_word)
+
 # TODO: construct 5 random sentences
 # Your code here
 
