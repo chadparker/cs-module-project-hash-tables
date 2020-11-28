@@ -5,6 +5,7 @@ with open("input.txt") as f:
     words = f.read().split()
 
 hash_table = {}
+# collect following words
 for index, word in enumerate(words):
     following_words = hash_table.get(word, [])
     if index < len(words)-1:
@@ -20,6 +21,18 @@ for word in words:
     if word_no_quote[0].isupper():
         start_words.append(word)
 
-start_word = random.choice(start_words)
-print(start_word)
+current_word = random.choice(start_words)
 
+def is_stop_word(word):
+    if word[-1] == '"':
+        word = word[:-1]
+    end_char = word[-1]
+    return end_char in '.?!'
+
+# loop until stop word
+while True:
+    print(current_word, end=" ")
+    if is_stop_word(current_word):
+        break
+    next_list = hash_table[current_word]
+    current_word = random.choice(next_list)
