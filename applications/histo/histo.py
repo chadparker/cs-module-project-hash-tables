@@ -1,6 +1,9 @@
 
 with open("robin.txt") as f:
-    words = f.read().split()
+    text = f.read()
+
+text = text.lower()
+words = text.split()
 
 for word in words:
     print(word)
