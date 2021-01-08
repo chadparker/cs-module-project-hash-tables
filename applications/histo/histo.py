@@ -1,3 +1,4 @@
+from operator import itemgetter
 
 ignored_str = '":;,.-+=/\\|[]{}()*^&'
 ignored_chars = set()
@@ -19,3 +20,5 @@ for word in words:
     hash_table[word] = count
     if len(word) > longest_word_length:
         longest_word_length = len(word)
+
+items = sorted(hash_table.items(), key=itemgetter(1, 0))
