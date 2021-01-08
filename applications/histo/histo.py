@@ -1,5 +1,5 @@
 
-ignored_str = '":;,.-+=/\|[]{}()*^&'
+ignored_str = '":;,.-+=/\\|[]{}()*^&'
 ignored_chars = set()
 for char in ignored_str:
     ignored_chars.add(char)
