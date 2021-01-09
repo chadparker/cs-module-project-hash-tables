@@ -1,5 +1,6 @@
 # Use frequency analysis to find the key to ciphertext.txt, and then
 # decode it.
+from collections import defaultdict
 
 letters_sortedby_most_used = [
     'E', 'T', 'A', 'O', 'H', 'N', 'R', 'I', 'S', 'D', 'L', 'W', 'U',
@@ -12,3 +13,8 @@ for letter in letters_sortedby_most_used:
 
 with open("ciphertext.txt") as f:
     cipher_text = f.read()
+
+letter_counts = defaultdict(int)
+for char in cipher_text:
+    if char in letters:
+        letter_counts[char] += 1
