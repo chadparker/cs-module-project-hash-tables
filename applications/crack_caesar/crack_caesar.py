@@ -8,16 +8,16 @@ letters_sortedby_most_used = [
     'G', 'F', 'B', 'M', 'Y', 'C', 'P', 'K', 'V', 'Q', 'J', 'X', 'Z'
 ]
 
-letters = set()
+alphabet = set()
 for letter in letters_sortedby_most_used:
-    letters.add(letter)
+    alphabet.add(letter)
 
 with open("ciphertext.txt") as f:
     cipher_text = f.read()
 
 letter_counts = defaultdict(int)
 for char in cipher_text:
-    if char in letters:
+    if char in alphabet:
         letter_counts[char] += 1
 
 letter_counts_sorted = sorted(letter_counts.items(), key=itemgetter(1), reverse=True)
