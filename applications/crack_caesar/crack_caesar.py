@@ -24,3 +24,8 @@ letter_counts_sorted = sorted(letter_counts.items(), key=itemgetter(1), reverse=
 letters_sorted = []
 for pair in letter_counts_sorted:
     letters_sorted.append(pair[0])
+
+cipher_key = {}
+for index, letter_to in enumerate(letters_sortedby_most_used):
+    letter_from = letters_sorted[index]
+    cipher_key[letter_from] = letter_to
