@@ -29,3 +29,14 @@ cipher_key = {}
 for index, letter_to in enumerate(letters_sortedby_most_used):
     letter_from = letters_sorted[index]
     cipher_key[letter_from] = letter_to
+
+decoded_chars = []
+for char in cipher_text:
+    if char in alphabet:
+        decoded_chars.append(cipher_key[char])
+    else:
+        decoded_chars.append(char)
+
+decoded_text = ''.join(decoded_chars)
+
+print(decoded_text)
