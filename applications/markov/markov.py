@@ -2,12 +2,37 @@ import random
 
 # Read in all the words in one go
 with open("input.txt") as f:
-    words = f.read()
+    words = f.read().split()
 
-# TODO: analyze which words can follow other words
-# Your code here
+hash_table = {}
+# collect following words
+for index, word in enumerate(words):
+    following_words = hash_table.get(word, [])
+    if index < len(words)-1:
+        following_words.append(words[index+1])
+        hash_table[word] = following_words
 
+start_words = []
+# get capitalized words, including starting with double quote
+for word in words:
+    word_no_quote = word
+    if word[0] == '"':
+        word_no_quote = word[1:]
+    if word_no_quote[0].isupper():
+        start_words.append(word)
 
-# TODO: construct 5 random sentences
-# Your code here
+current_word = random.choice(start_words)
 
+def is_stop_word(word):
+    if word[-1] == '"':
+        word = word[:-1]
+    end_char = word[-1]
+    return end_char in '.?!'
+
+# loop until stop word
+while True:
+    print(current_word, end=" ")
+    if is_stop_word(current_word):
+        break
+    next_list = hash_table[current_word]
+    current_word = random.choice(next_list)

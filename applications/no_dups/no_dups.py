@@ -1,6 +1,15 @@
-def no_dups(s):
-    # Your code here
+from collections import defaultdict
 
+def no_dups(s):
+    hash_table = defaultdict(int)
+    word_list = []
+    
+    for word in s.split():
+        hash_table[word] += 1
+        if hash_table[word] < 2:
+            word_list.append(word)
+    
+    return ' '.join(word_list)
 
 
 if __name__ == "__main__":
